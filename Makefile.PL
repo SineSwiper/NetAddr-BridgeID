@@ -22,10 +22,9 @@ my %WriteMakefileArgs = (
   "NAME" => "NetAddr::BridgeId",
   "PREREQ_PM" => {
     "Moo" => "0.009001",
+    "MooX::Types::CLike" => "0.90",
     "MooX::Types::MooseLike::Base" => "0.03",
-    "MooX::Types::MooseLike::CLike" => 0,
     "NetAddr::MAC" => "0.7",
-    "Scalar::Utils" => 0,
     "sanity" => "0.91"
   },
   "VERSION" => "0.90",

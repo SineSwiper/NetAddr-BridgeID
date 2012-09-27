@@ -5,11 +5,11 @@ our $VERSION = '0.90'; # VERSION
 
 use sanity;
 use NetAddr::MAC;
-use Scalar::Utils qw/blessed/;
+use Scalar::Util qw/blessed/;
 
 use Moo;
 use MooX::Types::MooseLike::Base qw/Str/;
-use MooX::Types::MooseLike::CLike qw/UShort/;
+use MooX::Types::CLike qw/UShort/;
 
 has original => {
    is       => 'ro',

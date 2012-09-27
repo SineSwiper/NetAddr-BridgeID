@@ -50,10 +50,9 @@ sub pmver {
 }
 
 eval { $v .= pmver('Moo','0.009001') };
+eval { $v .= pmver('MooX::Types::CLike','0.90') };
 eval { $v .= pmver('MooX::Types::MooseLike::Base','0.03') };
-eval { $v .= pmver('MooX::Types::MooseLike::CLike','any version') };
 eval { $v .= pmver('NetAddr::MAC','0.7') };
-eval { $v .= pmver('Scalar::Utils','any version') };
 eval { $v .= pmver('Test::CheckDeps','0.002') };
 eval { $v .= pmver('Test::UseAllModules','0.10') };
 eval { $v .= pmver('sanity','0.91') };
