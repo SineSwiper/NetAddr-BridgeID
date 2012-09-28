@@ -1,7 +1,7 @@
 package NetAddr::BridgeID;
 
-# ABSTRACT: Object for BridgeIDs (priority/MAC combos)
 our $VERSION = '0.95'; # VERSION
+# ABSTRACT: Object for BridgeIDs (priority/MAC combos)
 
 use sanity;
 use NetAddr::MAC;
