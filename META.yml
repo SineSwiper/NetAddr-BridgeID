@@ -9,7 +9,7 @@ license:
 meta-spec:
   url: http://search.cpan.org/perldoc?CPAN::Meta::Spec
   version: 2
-name: NetAddr-BridgeId
+name: NetAddr-BridgeID
 no_index:
   directory:
     - t
@@ -21,7 +21,7 @@ prereqs:
     requires:
       Moo: 0.009001
       MooX::Types::CLike: 0.90
-      MooX::Types::MooseLike::Base: 0.03
+      MooX::Types::MooseLike: 0.03
       NetAddr::MAC: 0.7
       Params::Util: 0.33
       perl: v5.10.1
@@ -33,7 +33,7 @@ prereqs:
 provides:
   NetAddr::BridgeID:
     file: lib/NetAddr/BridgeId.pm
-    version: 0.90
+    version: 0.95
 release_status: stable
 resources:
   bugtracker:
@@ -43,8 +43,7 @@ resources:
     type: git
     url: git://github.com/SineSwiper/NetAddr-BridgeId.git
     web: https://github.com/SineSwiper/NetAddr-BridgeId
-  x_irc: irc://irc.perl.org/#distzilla
-version: 0.90
+version: 0.95
 x_Dist_Zilla:
   plugins:
     -
@@ -187,6 +186,14 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::PrereqsClean
       name: '@Prereqs/PrereqsClean'
       version: 0.91
+    -
+      class: Dist::Zilla::Plugin::Prereqs
+      config:
+        Dist::Zilla::Plugin::Prereqs:
+          phase: runtime
+          type: requires
+      name: Prereqs
+      version: 4.300023
     -
       class: Dist::Zilla::Plugin::CheckPrereqsIndexed
       name: CheckPrereqsIndexed

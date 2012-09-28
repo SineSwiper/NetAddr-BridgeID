@@ -16,19 +16,19 @@ my %WriteMakefileArgs = (
     "Test::UseAllModules" => "0.10"
   },
   "CONFIGURE_REQUIRES" => {},
-  "DISTNAME" => "NetAddr-BridgeId",
+  "DISTNAME" => "NetAddr-BridgeID",
   "EXE_FILES" => [],
   "LICENSE" => "artistic_2",
-  "NAME" => "NetAddr::BridgeId",
+  "NAME" => "NetAddr::BridgeID",
   "PREREQ_PM" => {
     "Moo" => "0.009001",
     "MooX::Types::CLike" => "0.90",
-    "MooX::Types::MooseLike::Base" => "0.03",
+    "MooX::Types::MooseLike" => "0.03",
     "NetAddr::MAC" => "0.7",
     "Params::Util" => "0.33",
     "sanity" => "0.91"
   },
-  "VERSION" => "0.90",
+  "VERSION" => "0.95",
   "test" => {
     "TESTS" => "t/*.t"
   }

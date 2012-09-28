@@ -1,7 +1,7 @@
 package NetAddr::BridgeID;
 
 # ABSTRACT: Object for BridgeIDs (priority/MAC combos)
-our $VERSION = '0.90'; # VERSION
+our $VERSION = '0.95'; # VERSION
 
 use sanity;
 use NetAddr::MAC;
@@ -122,7 +122,7 @@ The project homepage is L<https://github.com/SineSwiper/NetAddr-BridgeId/wiki>.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you, or see L<https://metacpan.org/module/NetAddr::BridgeId/>.
+site near you, or see L<https://metacpan.org/module/NetAddr::BridgeID/>.
 
 =for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
 
