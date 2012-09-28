@@ -6,24 +6,27 @@ our $VERSION = '0.90'; # VERSION
 use sanity;
 use NetAddr::MAC;
 use Scalar::Util qw/blessed/;
+use Params::Util qw/_INSTANCEDOES/;
 
 use Moo;
 use MooX::Types::MooseLike::Base qw/Str/;
 use MooX::Types::CLike qw/UShort/;
 
-has original => {
+has original => (
    is       => 'ro',
    isa      => Str,
    required => 1,
-};
-has priority => {
+);
+has priority => (
    is       => 'ro',
    isa      => UShort,
    required => 1,
-};
-has mac_obj => {
+);
+has mac_obj => (
    is       => 'ro',
-   isa      => 'NetAddr::MAC',
+   isa      => sub {
+      die "Not a NetAddr::MAC object!" unless ( _INSTANCEDOES $_[0], 'NetAddr::MAC' );
+   },
    required => 1,
    handles  => {
       (map { $_ => $_ } qw(
@@ -49,23 +52,26 @@ has mac_obj => {
          mac  original
       ),
    },
-};
+);
 
-sub bridge_id { $_[0]->priority.'#'.$_[0]->as_basic; }
+sub bridge_id { $_[0]->priority.'#'.$_[0]->as_cisco; }
 
-sub BUILDARGS {
-   my ($class, %opts) = @_;
+around BUILDARGS => sub {
+   my ($orig, $self) = (shift, shift);
+   my %opts;
 
-   if (@_ == 2) {
-      %opts = ();
+   if (@_ == 1) {
       my $arg = pop;
       if (blessed $arg) {
-         if    ($arg->isa('NetAddr::BridgeID')) { $opts{bridge_id} = $arg->bridge_id; }
+         if    ($arg->isa('NetAddr::BridgeID')) { $opts{bridge_id} = $arg->original; }
          elsif ($arg->isa('NetAddr::MAC'))      { $opts{mac_obj}   = $arg; }
          else                                   { $opts{bridge_id} = $arg; }
       }
-      else { $opts{bridge_id} = $arg; }
+      elsif (ref $arg eq 'ARRAY') { %opts = @$arg; }
+      elsif (ref $arg eq 'HASH')  { %opts = %$arg; }
+      else                        { $opts{bridge_id} = $arg; }
    }
+   else { %opts = @_; }
 
    # parse vars from bridge_id
    if (defined $opts{bridge_id}) {
@@ -80,13 +86,23 @@ sub BUILDARGS {
    # defaults
    $opts{priority}  //= 0;
    $opts{bridge_id} //= $opts{priority}.'#'.$opts{mac};
-   $opts{mac_obj}   //= NetAddr::MAC->new($opts{mac});
+   #$opts{mac_obj}   //= NetAddr::MAC->new( mac => $opts{mac} );
+   
+   # NetAddr::MAC has some weird issues with MAC translation here
+   # (see https://rt.cpan.org/Ticket/Display.html?id=79915)
+   unless ($opts{mac_obj}) {
+      my $new_mac = $opts{mac};
+      $new_mac =~ s/[^\da-f]//gi;
+      $new_mac =~ s/(.{4})(?=.)/$1./g;
+      $opts{mac_obj} = NetAddr::MAC->new( mac => $new_mac );
+      $opts{mac_obj}->{original} = $opts{mac};  # Ugly and hacky; remove when bug is fixed
+   }
    
    # bridge_id is actually 'original'
    $opts{original} = delete $opts{bridge_id};
    delete $opts{mac};
 
-   return \$opts;
+   $orig->($self, \%opts);
 };
 
 1;

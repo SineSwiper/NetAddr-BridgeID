@@ -23,6 +23,7 @@ prereqs:
       MooX::Types::CLike: 0.90
       MooX::Types::MooseLike::Base: 0.03
       NetAddr::MAC: 0.7
+      Params::Util: 0.33
       perl: v5.10.1
       sanity: 0.91
   test:

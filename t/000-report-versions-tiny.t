@@ -53,6 +53,7 @@ eval { $v .= pmver('Moo','0.009001') };
 eval { $v .= pmver('MooX::Types::CLike','0.90') };
 eval { $v .= pmver('MooX::Types::MooseLike::Base','0.03') };
 eval { $v .= pmver('NetAddr::MAC','0.7') };
+eval { $v .= pmver('Params::Util','0.33') };
 eval { $v .= pmver('Test::CheckDeps','0.002') };
 eval { $v .= pmver('Test::UseAllModules','0.10') };
 eval { $v .= pmver('sanity','0.91') };
