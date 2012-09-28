@@ -1,7 +1,7 @@
 package NetAddr::BridgeID;
 
-# ABSTRACT: Object for BridgeIDs (priority/MAC combos)
 # VERSION
+# ABSTRACT: Object for BridgeIDs (priority/MAC combos)
 
 use sanity;
 use NetAddr::MAC;
@@ -56,6 +56,9 @@ has mac_obj => (
 
 sub bridge_id { $_[0]->priority.'#'.$_[0]->as_cisco; }
 
+=for Pod::Coverage BUILDARGS
+=cut
+
 around BUILDARGS => sub {
    my ($orig, $self) = (shift, shift);
    my %opts;
@@ -106,3 +109,49 @@ around BUILDARGS => sub {
 };
 
 1;
+
+__END__
+
+=head1 SYNOPSIS
+ 
+   use NetAddr::BridgeID;
+    
+   my $bid;
+   $bid = NetAddr::BridgeID->new( '2#00:11:22:aa:bb:cc' );
+   $bid = NetAddr::BridgeID->new( bridge_id => '60#0011.22AA.BBCC' );
+   
+   use NetAddr::MAC;
+   my $mac = NetAddr::MAC->new( mac => '0011.22AA.BBCC' );
+   
+   $bid = NetAddr::BridgeID->new( priority => '60', mac_obj => $mac );
+   $bid = NetAddr::BridgeID->new( priority => '60', mac => '0011.22AA.BBCC' );
+   
+=head1 DESCRIPTION
+ 
+This object class simply creates a L<NetAddr::MAC>-like object, with a priority for
+STP Bridge IDs.
+
+=head1 METHODS
+
+=head2 original
+
+The original bridge ID string, as it was passed to the constructor.  If it was passed
+in pieces (or if parts were left out), it will fill in the gaps to provide a full
+bridge ID
+
+=head2 bridge_id
+
+The bridge ID, with a Cisco-style MAC address (like C<0000.1111.2222>).
+
+=head2 priority
+
+The priority number.
+
+=head2 mac_obj
+
+The L<NetAddr::MAC> object tied to this one.
+
+=head2 NetAddr::MAC Methods
+
+All of the C<is_* / as_* / to_*> methods are "handled" to the main BridgeID object, so 
+you can access them directly.
