@@ -32,17 +32,17 @@ prereqs:
       Test::UseAllModules: 0.10
 provides:
   NetAddr::BridgeID:
-    file: lib/NetAddr/BridgeId.pm
+    file: lib/NetAddr/BridgeID.pm
     version: 0.95
 release_status: stable
 resources:
   bugtracker:
-    web: https://github.com/SineSwiper/NetAddr-BridgeId/issues
-  homepage: https://github.com/SineSwiper/NetAddr-BridgeId/wiki
+    web: https://github.com/SineSwiper/NetAddr-BridgeID/issues
+  homepage: https://github.com/SineSwiper/NetAddr-BridgeID/wiki
   repository:
     type: git
-    url: git://github.com/SineSwiper/NetAddr-BridgeId.git
-    web: https://github.com/SineSwiper/NetAddr-BridgeId
+    url: git://github.com/SineSwiper/NetAddr-BridgeID.git
+    web: https://github.com/SineSwiper/NetAddr-BridgeID
 version: 0.95
 x_Dist_Zilla:
   plugins:
@@ -229,7 +229,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::TravisYML
       name: TravisYML
-      version: 0.92
+      version: 0.94
     -
       class: Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch
       name: Git::CheckFor::CorrectBranch

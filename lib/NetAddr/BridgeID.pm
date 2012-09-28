@@ -118,7 +118,7 @@ NetAddr::BridgeID - Object for BridgeIDs (priority/MAC combos)
 
 =head1 AVAILABILITY
 
-The project homepage is L<https://github.com/SineSwiper/NetAddr-BridgeId/wiki>.
+The project homepage is L<https://github.com/SineSwiper/NetAddr-BridgeID/wiki>.
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
@@ -147,7 +147,7 @@ You can connect to the server at 'irc.perl.org' and join this channel: #distzill
 
 =head2 Bugs / Feature Requests
 
-Please report any bugs or feature requests via L<L<https://github.com/SineSwiper/NetAddr-BridgeId/issues>|GitHub>.
+Please report any bugs or feature requests via L<L<https://github.com/SineSwiper/NetAddr-BridgeID/issues>|GitHub>.
 
 =head1 AUTHOR
 
