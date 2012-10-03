@@ -1,6 +1,6 @@
 package NetAddr::BridgeID;
 
-our $VERSION = '0.95'; # VERSION
+our $VERSION = '0.96'; # VERSION
 # ABSTRACT: Object for BridgeIDs (priority/MAC combos)
 
 use sanity;
@@ -87,17 +87,17 @@ around BUILDARGS => sub {
    # defaults
    $opts{priority}  //= 0;
    $opts{bridge_id} //= $opts{priority}.'#'.$opts{mac};
-   #$opts{mac_obj}   //= NetAddr::MAC->new( mac => $opts{mac} );
+   $opts{mac_obj}   //= NetAddr::MAC->new( mac => $opts{mac} );
    
    # NetAddr::MAC has some weird issues with MAC translation here
    # (see https://rt.cpan.org/Ticket/Display.html?id=79915)
-   unless ($opts{mac_obj}) {
-      my $new_mac = $opts{mac};
-      $new_mac =~ s/[^\da-f]//gi;
-      $new_mac =~ s/(.{4})(?=.)/$1./g;
-      $opts{mac_obj} = NetAddr::MAC->new( mac => $new_mac );
-      $opts{mac_obj}->{original} = $opts{mac};  # Ugly and hacky; remove when bug is fixed
-   }
+   #unless ($opts{mac_obj}) {
+   #   my $new_mac = $opts{mac};
+   #   $new_mac =~ s/[^\da-f]//gi;
+   #   $new_mac =~ s/(.{4})(?=.)/$1./g;
+   #   $opts{mac_obj} = NetAddr::MAC->new( mac => $new_mac );
+   #   $opts{mac_obj}->{original} = $opts{mac};  # Ugly and hacky; remove when bug is fixed
+   #}
    
    # bridge_id is actually 'original'
    $opts{original} = delete $opts{bridge_id};

@@ -26,9 +26,9 @@ my %WriteMakefileArgs = (
     "MooX::Types::MooseLike" => "0.03",
     "NetAddr::MAC" => "0.7",
     "Params::Util" => "0.33",
-    "sanity" => "0.91"
+    "sanity" => "0.94"
   },
-  "VERSION" => "0.95",
+  "VERSION" => "0.96",
   "test" => {
     "TESTS" => "t/*.t"
   }
