@@ -52,7 +52,6 @@ eval { $v .= pmver('Moo','0.009001') };
 eval { $v .= pmver('MooX::Types::CLike','0.90') };
 eval { $v .= pmver('MooX::Types::MooseLike','0.03') };
 eval { $v .= pmver('NetAddr::MAC','0.7') };
-eval { $v .= pmver('Params::Util','0.33') };
 eval { $v .= pmver('Pod::Coverage::TrustPod','any version') };
 eval { $v .= pmver('Test::CheckDeps','0.002') };
 eval { $v .= pmver('Test::Pod','1.41') };

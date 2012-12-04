@@ -1,6 +1,15 @@
 Revision History for NetAddr-BridgeID
 =====================================
 
+v0.96 2012-10-18
+----------------
+
+commit 560e9dbba778c63df015f4ba8c3a343734d9f3ac
+Author: Brendan Byrd <Perl@ResonatorSoft.org>
+Date:   Thu Oct 18 01:14:58 2012 -0400
+
+    Release v0.96
+
 ===================================
 End of changes in the last 365 days
 ===================================

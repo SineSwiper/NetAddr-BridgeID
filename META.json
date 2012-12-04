@@ -36,7 +36,6 @@
             "MooX::Types::CLike" : "0.90",
             "MooX::Types::MooseLike" : "0.03",
             "NetAddr::MAC" : "0.7",
-            "Params::Util" : "0.33",
             "perl" : "v5.10.1",
             "sanity" : "0.94"
          }
@@ -51,7 +50,7 @@
    "provides" : {
       "NetAddr::BridgeID" : {
          "file" : "lib/NetAddr/BridgeID.pm",
-         "version" : "0.96"
+         "version" : "0.97"
       }
    },
    "release_status" : "stable",
@@ -67,7 +66,7 @@
       },
       "x_irc" : "irc://irc.perl.org/"
    },
-   "version" : "0.96",
+   "version" : "0.97",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.016000"
@@ -346,12 +345,12 @@
          {
             "class" : "Dist::Zilla::Plugin::MinimumPrereqs",
             "name" : "@Prereqs/MinimumPrereqs",
-            "version" : "0.91"
+            "version" : "0.92"
          },
          {
             "class" : "Dist::Zilla::Plugin::PrereqsClean",
             "name" : "@Prereqs/PrereqsClean",
-            "version" : "0.91"
+            "version" : "0.92"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
