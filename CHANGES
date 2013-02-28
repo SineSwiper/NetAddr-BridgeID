@@ -1,6 +1,15 @@
 Revision History for NetAddr-BridgeID
 =====================================
 
+v0.97 2013-02-28
+----------------
+
+commit 0be4008e6ad2cd8a70f09d4e7c6931bcc24e3e96
+Author: Brendan Byrd <Perl@ResonatorSoft.org>
+Date:   Thu Feb 28 17:32:35 2013 -0500
+
+    Use MooX::Types::MooseLike::Base::InstanceOf
+
 v0.96 2012-10-18
 ----------------
 
